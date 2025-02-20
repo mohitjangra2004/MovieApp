@@ -1,11 +1,15 @@
 package com.example.movieapp.dependencyinjection
 
 import com.example.movieapp.data.api.WatchModeApi
+import com.facebook.shimmer.BuildConfig
 import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 
 val networkModule = module {
@@ -16,7 +20,7 @@ val networkModule = module {
     }
 
     single {
-        provideOkHyypClient(get())
+        provideOkHttpClient(get())
     }
 
     single{
@@ -40,7 +44,7 @@ private fun provideAuthInterceptor()=Interceptor{chain ->
     val originalURL= original.url
 
     val url=originalURL.newBuilder()
-        .addQueryParameter("api_key", "c60f4ddbe8e3035af9697df1f414a14f")
+        .addQueryParameter("api_key", "f242921626c54d736be0e63e08729a80")
         .build()
     val request = original.newBuilder()
         .url(url)
@@ -50,3 +54,17 @@ private fun provideAuthInterceptor()=Interceptor{chain ->
 
 }
 
+private fun provideOkHttpClient(authInterceptor: Interceptor)= OkHttpClient.Builder()
+    .addInterceptor(authInterceptor)
+    .addInterceptor(HttpLoggingInterceptor().apply {
+
+        level = if(BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY}
+        else {
+            HttpLoggingInterceptor.Level.NONE
+        }
+    })
+    .connectTimeout(15 , TimeUnit.SECONDS)
+    .writeTimeout(15 , TimeUnit.SECONDS)
+    .readTimeout(15 , TimeUnit.SECONDS)
+    .build()

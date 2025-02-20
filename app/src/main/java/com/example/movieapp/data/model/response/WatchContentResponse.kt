@@ -1,4 +1,3 @@
 package com.example.movieapp.data.model.response
 
-class WatchContentResponse {
-}
+data class WatchContentResponse()
