@@ -1,4 +1,11 @@
 package com.example.movieapp.representation.navigation
 
-class Screen {
+sealed class Screen(val route : String) {
+
+    data object Home : Screen("home")
+    data object Details : Screen("details/{content}"){
+
+        fun createRoute(contentId:String) = "details/$contentId"
+    }
+
 }

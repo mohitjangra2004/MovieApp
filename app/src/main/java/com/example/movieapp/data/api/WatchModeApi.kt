@@ -38,4 +38,8 @@ interface WatchModeApi {
         @Path("tv_id") tvId : Int ,
         @Query("language") language: String = "en - US"
     ): WatchContentResponse
+
+    companion object {
+        const val BASE_URL = "https://api.themoviedb.org/3/"
+    }
 }
