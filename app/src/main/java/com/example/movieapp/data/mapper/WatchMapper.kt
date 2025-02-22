@@ -3,7 +3,7 @@ package com.example.movieapp.data.mapper
 import com.example.movieapp.data.model.WatchContent
 import com.example.movieapp.data.model.response.WatchContentResponse
 
-class WatchMapper (){
+class WatchMapper {
 
     fun mapResponseToWatchContent(input: WatchContentResponse): WatchContent {
         val isTvShow = input.first_air_date != null

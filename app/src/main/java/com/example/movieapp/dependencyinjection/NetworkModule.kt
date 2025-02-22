@@ -44,7 +44,7 @@ private fun provideAuthInterceptor()=Interceptor{chain ->
     val originalURL= original.url
 
     val url=originalURL.newBuilder()
-        .addQueryParameter("api_key", "f242921626c54d736be0e63e08729a80")
+        .addQueryParameter("api_key", "c60f4ddbe8e3035af9697df1f414a14f")
         .build()
     val request = original.newBuilder()
         .url(url)

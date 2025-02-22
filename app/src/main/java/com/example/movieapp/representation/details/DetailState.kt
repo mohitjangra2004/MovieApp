@@ -1,7 +1,7 @@
 package com.example.movieapp.representation.details
 
 import com.example.movieapp.data.model.WatchContent
-import org.koin.core.logger.MESSAGE
+
 
 
 sealed class DetailsState{

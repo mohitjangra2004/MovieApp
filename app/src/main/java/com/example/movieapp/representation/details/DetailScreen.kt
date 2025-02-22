@@ -27,7 +27,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonDefaults
+
 import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -47,16 +47,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 import com.example.movieapp.representation.details.components.DetailContent
-import com.example.movieapp.representation.navigation.Screen
-import io.reactivex.rxjava3.internal.operators.flowable.FlowableRetryWhen
+
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
-import org.koin.core.scope.Scope
 
 
 
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
+
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun DetailScreen(
     contentId : String ,

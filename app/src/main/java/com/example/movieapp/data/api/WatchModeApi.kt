@@ -3,7 +3,6 @@ package com.example.movieapp.data.api
 import com.example.movieapp.data.model.response.WatchContentListResponse
 import com.example.movieapp.data.model.response.WatchContentResponse
 import io.reactivex.rxjava3.core.Single
-import org.intellij.lang.annotations.Language
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

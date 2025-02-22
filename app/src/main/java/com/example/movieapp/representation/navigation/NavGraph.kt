@@ -9,7 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.movieapp.representation.details.DetailScreen
 import com.example.movieapp.representation.home.HomeScreen
-import java.security.AccessController
+
 
 @Composable
 fun WatchAppNavigation(

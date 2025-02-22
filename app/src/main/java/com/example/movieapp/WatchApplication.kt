@@ -1,7 +1,7 @@
 package com.example.movieapp
 
 import android.app.Application
-import android.content.Context
+
 import com.example.movieapp.dependencyinjection.appModule
 import com.example.movieapp.dependencyinjection.networkModule
 import com.example.movieapp.dependencyinjection.repositoryModule
