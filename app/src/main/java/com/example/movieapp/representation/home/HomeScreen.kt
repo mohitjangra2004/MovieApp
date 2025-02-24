@@ -13,20 +13,21 @@ fun HomeScreen(
     viewModel: HomeViewModel = koinViewModel(),
     onNavigateToDetails: (String) -> Unit
 ) {
-    val state by viewModel.state.collectAsState() // ✅ HomeState variable
-    val contentType by viewModel.contentType.collectAsState() // ✅ ContentType variable
+    val state by viewModel.state.collectAsState() 
+    val contentType by viewModel.contentType.collectAsState()
+
 
     Column {
-        // ✅ Correct usage of ContentType
+
         HomeTopBar(selectedType = contentType, onTypeSelected = viewModel::setContentType)
 
         AnimatedContent(targetState = state) { currentState ->
-            when (currentState) {  // ✅ HomeState comparison here
-                is HomeState.Loading -> {
+            when (currentState) {  
+                is HomeState.Loading -> 
                     ShimmerEffect()
                 }
                 is HomeState.Success -> {
-                    // ✅ Correct usage of ContentType
+                
                     val content: List<WatchContent> = when (contentType) {
                         ContentType.MOVIES -> currentState.movies
                         ContentType.TV_SHOWS -> currentState.tvShows
